@@ -3,11 +3,11 @@
 class Recipe
 {
 	private $title;
-	public $ingredients = [];
-	public $instructions = [];
-	public $yield;
-	public $tag = [];
-	public $source = 'Sagiv Lapkin';
+	private $ingredients = [];
+	private $instructions = [];
+	private $yield;
+	private $tag = [];
+	private $source = 'Sagiv Lapkin';
 
 	private $measurements = ['tsp', 'tbsp', 'cup', 'oz', 'lb', 'fl oz', 'pint', 'quart', 'gallon'];
 
@@ -42,8 +42,44 @@ class Recipe
 		return $this->ingredients;
 	}
 
-	public function displayRecipe()
+	public function addInstruction($string)
 	{
-		return $this->title . ' by ' . $this->source;
+		$this->instructions[] = $string;
 	}
+
+	public function getInstructions()
+	{
+		return $this->instructions;
+	}
+
+	public function addTag($tag)
+	{
+		$this->tags[] = strtolower($tag);
+	}
+
+	public function getTags()
+	{
+		return $this->tags;
+	}
+
+	public function setYield($yield)
+	{
+		$this->yield = $yield;
+	}
+
+	public function getYield()
+	{
+		return $this->yield;
+	}
+
+	public function setSource($source)
+	{
+		$this->source = ucwords($source);
+	}
+
+	public function getSource()
+	{
+		return $this->source;
+	}
+
 }
